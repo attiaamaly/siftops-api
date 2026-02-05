@@ -182,11 +182,11 @@ def search(q: str, limit: int = 5):
 
         qvec = list(embedding_model.embed([q]))[0]
 
-        results = client.search(
-            collection_name=collection,
-            query_vector=qvec,
-            limit=limit,
-        )
+       results = client.search_points(
+        collection_name=collection,
+        vector=qvec,
+        limit=limit,
+    )
 
         out = []
         for r in results:
