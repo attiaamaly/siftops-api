@@ -4,7 +4,7 @@ from typing import List, Dict, Any
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from pypdf import PdfReader
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams, PointStruct
