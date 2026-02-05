@@ -1,7 +1,7 @@
 import os
 import json
 import uuid
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any
 
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
@@ -15,12 +15,11 @@ from qdrant_client.http.models import Distance, VectorParams, PointStruct
 
 app = FastAPI()
 
-# --- Config (paths in your GitHub repo) ---
+# --- Repo paths ---
 MANIFEST_PATH = "siftops_dataset/docs_manifest.json"
 PDF_DIR = "siftops_dataset/data/pdfs"
 
-# --- Embedding model (Open-source, lightweight, Railway-friendly) ---
-# Good default for semantic search
+# --- Embeddings (open-source, lightweight) ---
 EMBED_MODEL_NAME = os.environ.get("EMBED_MODEL_NAME", "BAAI/bge-small-en-v1.5")
 embedding_model = TextEmbedding(model_name=EMBED_MODEL_NAME)
 
@@ -129,7 +128,8 @@ def reindex(recreate: bool = True):
 
             pages = extract_pages(pdf_path)
             for page_num, page_text in enumerate(pages, start=1):
-                for idx, ch in enumerate(chunk_text(page_text)):
+                chunks = chunk_text(page_text)
+                for idx, ch in enumerate(chunks):
                     payloads.append(
                         {
                             "filename": filename,
@@ -142,11 +142,11 @@ def reindex(recreate: bool = True):
                     )
 
         # Embed + upsert in batches
-        B = 64
+        BATCH = 64
         upserted = 0
 
-        for i in range(0, len(payloads), B):
-            batch = payloads[i : i + B]
+        for i in range(0, len(payloads), BATCH):
+            batch = payloads[i : i + BATCH]
             texts = [p["text"] for p in batch]
 
             vectors = list(embedding_model.embed(texts))
@@ -182,23 +182,28 @@ def search(q: str, limit: int = 5):
 
         qvec = list(embedding_model.embed([q]))[0]
 
-       results = client.search_points(
-        collection_name=collection,
-        vector=qvec,
-        limit=limit,
-    )
+        # IMPORTANT: use search_points (compatible with your installed qdrant-client)
+        results = client.search_points(
+            collection_name=collection,
+            vector=qvec,
+            limit=limit,
+            with_payload=True,
+        )
 
         out = []
         for r in results:
-            p = r.payload or {}
-            text = p.get("text", "") or ""
+            # results can differ slightly across versions; handle both styles
+            payload = getattr(r, "payload", None) or (r.get("payload") if isinstance(r, dict) else {}) or {}
+            score = getattr(r, "score", None) if not isinstance(r, dict) else r.get("score")
+
+            text = payload.get("text", "") or ""
             out.append(
                 {
-                    "score": r.score,
-                    "filename": p.get("filename"),
-                    "page": p.get("page"),
-                    "title": p.get("title"),
-                    "department": p.get("department"),
+                    "score": score,
+                    "filename": payload.get("filename"),
+                    "page": payload.get("page"),
+                    "title": payload.get("title"),
+                    "department": payload.get("department"),
                     "snippet": (text[:300] + "…") if len(text) > 300 else text,
                 }
             )
