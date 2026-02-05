@@ -15,11 +15,9 @@ from qdrant_client.http.models import Distance, VectorParams, PointStruct
 
 app = FastAPI()
 
-# --- Repo paths ---
 MANIFEST_PATH = "siftops_dataset/docs_manifest.json"
 PDF_DIR = "siftops_dataset/data/pdfs"
 
-# --- Embeddings (open-source, lightweight) ---
 EMBED_MODEL_NAME = os.environ.get("EMBED_MODEL_NAME", "BAAI/bge-small-en-v1.5")
 embedding_model = TextEmbedding(model_name=EMBED_MODEL_NAME)
 
@@ -33,7 +31,6 @@ def qdrant() -> QdrantClient:
 
 
 def chunk_text(text: str, chunk_chars: int = 900, overlap: int = 150) -> List[str]:
-    """Chunk text by characters (simple + robust for PDFs)."""
     text = " ".join((text or "").split())
     if not text:
         return []
@@ -94,15 +91,10 @@ def health():
 
 @app.post("/reindex")
 def reindex(recreate: bool = True):
-    """
-    Reads PDFs from siftops_dataset/, chunks them, embeds locally (FastEmbed),
-    and upserts into Qdrant.
-    """
     try:
         client = qdrant()
         collection = os.environ.get("QDRANT_COLLECTION", "siftops_chunks")
 
-        # Determine vector dimension once from the model output
         probe_vec = list(embedding_model.embed(["probe"]))[0]
         dim = len(probe_vec)
 
@@ -141,7 +133,6 @@ def reindex(recreate: bool = True):
                         }
                     )
 
-        # Embed + upsert in batches
         BATCH = 64
         upserted = 0
 
@@ -173,37 +164,30 @@ def reindex(recreate: bool = True):
 
 @app.get("/search")
 def search(q: str, limit: int = 5):
-    """
-    Semantic search: embed query locally, search Qdrant, return best chunks.
-    """
     try:
         client = qdrant()
         collection = os.environ.get("QDRANT_COLLECTION", "siftops_chunks")
 
         qvec = list(embedding_model.embed([q]))[0]
 
-        # IMPORTANT: use search_points (compatible with your installed qdrant-client)
-        results = client.search_points(
+        results = client.search(
             collection_name=collection,
-            vector=qvec,
+            query_vector=qvec,
             limit=limit,
             with_payload=True,
         )
 
         out = []
         for r in results:
-            # results can differ slightly across versions; handle both styles
-            payload = getattr(r, "payload", None) or (r.get("payload") if isinstance(r, dict) else {}) or {}
-            score = getattr(r, "score", None) if not isinstance(r, dict) else r.get("score")
-
-            text = payload.get("text", "") or ""
+            p = r.payload or {}
+            text = p.get("text", "") or ""
             out.append(
                 {
-                    "score": score,
-                    "filename": payload.get("filename"),
-                    "page": payload.get("page"),
-                    "title": payload.get("title"),
-                    "department": payload.get("department"),
+                    "score": r.score,
+                    "filename": p.get("filename"),
+                    "page": p.get("page"),
+                    "title": p.get("title"),
+                    "department": p.get("department"),
                     "snippet": (text[:300] + "…") if len(text) > 300 else text,
                 }
             )
