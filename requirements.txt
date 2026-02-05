@@ -1,5 +1,5 @@
 fastapi
 uvicorn
-qdrant-client
 pypdf
 fastembed
+qdrant-client==1.7.4
