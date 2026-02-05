@@ -12,8 +12,9 @@ from qdrant_client.http.models import Distance, VectorParams, PointStruct
 app = FastAPI()
 
 # --------- setup ---------
-MODEL_NAME = "all-MiniLM-L6-v2"
-embedding_model = SentenceTransformer(MODEL_NAME)
+embedding_model = TextEmbedding(
+    model_name="BAAI/bge-small-en-v1.5"
+)
 
 def qdrant() -> QdrantClient:
     return QdrantClient(
@@ -95,7 +96,7 @@ def reindex(recreate: bool = True):
         pages = extract_pages(pdf_path)
         for page_num, page_text in enumerate(pages, start=1):
             chunks = chunk_text(page_text)
-            embeddings = embedding_model.encode(chunks).tolist()
+            embeddings = list(embedding_model.embed(chunks))
 
             for idx, (chunk, vector) in enumerate(zip(chunks, embeddings)):
                 points.append(
@@ -126,7 +127,7 @@ def search(q: str, limit: int = 5):
     client = qdrant()
     collection = os.environ.get("QDRANT_COLLECTION", "siftops_chunks")
 
-    qvec = embedding_model.encode([q])[0].tolist()
+    qvec = list(embedding_model.embed([q]))[0]
 
     results = client.search(
         collection_name=collection,
