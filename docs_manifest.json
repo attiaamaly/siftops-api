@@ -1,0 +1,506 @@
+[
+  {
+    "doc_id": "DOC-001",
+    "filename": "HR_Remote_Work_Policy.pdf",
+    "title": "HR Remote Work Policy",
+    "department": "HR",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "hr",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-002",
+    "filename": "HR_Leave_and_Absence_Policy.pdf",
+    "title": "HR Leave and Absence Policy",
+    "department": "HR",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "hr",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-003",
+    "filename": "HR_Benefits_Overview_2026.pdf",
+    "title": "Benefits Overview 2026",
+    "department": "HR",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "hr",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-004",
+    "filename": "HR_Performance_Review_Guidelines.pdf",
+    "title": "Performance Review Guidelines",
+    "department": "HR",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "hr",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-005",
+    "filename": "HR_Code_of_Conduct.pdf",
+    "title": "Code of Conduct",
+    "department": "HR",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "hr",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-006",
+    "filename": "HR_Anti_Harassment_Policy.pdf",
+    "title": "Anti‑Harassment Policy",
+    "department": "HR",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "hr",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-007",
+    "filename": "HR_Employee_Handbook.pdf",
+    "title": "Employee Handbook",
+    "department": "HR",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "hr",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-008",
+    "filename": "HR_Contractor_Policy.pdf",
+    "title": "Contractor Policy",
+    "department": "HR",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "hr",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-009",
+    "filename": "Finance_Expenses_Policy.pdf",
+    "title": "Expenses & Reimbursement Policy",
+    "department": "Finance",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "finance",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-010",
+    "filename": "Finance_Travel_Policy.pdf",
+    "title": "Travel Policy",
+    "department": "Finance",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "finance",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-011",
+    "filename": "Finance_Procurement_Policy.pdf",
+    "title": "Procurement Policy",
+    "department": "Finance",
+    "access_groups": [
+      "finance_team"
+    ],
+    "tags": [
+      "finance",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-012",
+    "filename": "Finance_Vendor_Onboarding.pdf",
+    "title": "Vendor Onboarding SOP",
+    "department": "Finance",
+    "access_groups": [
+      "finance_team"
+    ],
+    "tags": [
+      "finance",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-013",
+    "filename": "Finance_Budgeting_Playbook.pdf",
+    "title": "Budgeting Playbook",
+    "department": "Finance",
+    "access_groups": [
+      "finance_team"
+    ],
+    "tags": [
+      "finance",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-014",
+    "filename": "Finance_Invoice_Processing_SOP.pdf",
+    "title": "Invoice Processing SOP",
+    "department": "Finance",
+    "access_groups": [
+      "finance_team"
+    ],
+    "tags": [
+      "finance",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-015",
+    "filename": "Finance_Approval_Matrix.pdf",
+    "title": "Approval Matrix",
+    "department": "Finance",
+    "access_groups": [
+      "finance_team"
+    ],
+    "tags": [
+      "finance",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-016",
+    "filename": "Security_Password_and_MFA_Policy.pdf",
+    "title": "Password & MFA Policy",
+    "department": "Security",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "security",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-017",
+    "filename": "Security_Access_Control_Policy.pdf",
+    "title": "Access Control Policy",
+    "department": "Security",
+    "access_groups": [
+      "security_team"
+    ],
+    "tags": [
+      "security",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-018",
+    "filename": "Security_Incident_Response_Playbook.pdf",
+    "title": "Incident Response Playbook",
+    "department": "Security",
+    "access_groups": [
+      "security_team"
+    ],
+    "tags": [
+      "security",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-019",
+    "filename": "Security_Data_Classification_Standard.pdf",
+    "title": "Data Classification Standard",
+    "department": "Security",
+    "access_groups": [
+      "security_team"
+    ],
+    "tags": [
+      "security",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-020",
+    "filename": "IT_Device_Management_Policy.pdf",
+    "title": "Device Management Policy",
+    "department": "IT",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "it",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-021",
+    "filename": "IT_Onboarding_Offboarding_Runbook.pdf",
+    "title": "IT Onboarding & Offboarding Runbook",
+    "department": "IT",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "it",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-022",
+    "filename": "IT_Approved_SaaS_List.pdf",
+    "title": "Approved SaaS List",
+    "department": "IT",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "it",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-023",
+    "filename": "Legal_Data_Retention_Policy.pdf",
+    "title": "Data Retention Policy",
+    "department": "Legal",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "legal",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-024",
+    "filename": "Legal_Privacy_Notice_Internal.pdf",
+    "title": "Internal Privacy Notice",
+    "department": "Legal",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "legal",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-025",
+    "filename": "Legal_GDPR_Employee_Data_Guide.pdf",
+    "title": "GDPR Guide for Employee Data",
+    "department": "Legal",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "legal",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-026",
+    "filename": "Legal_Contracting_Playbook.pdf",
+    "title": "Contracting Playbook",
+    "department": "Legal",
+    "access_groups": [
+      "legal_team"
+    ],
+    "tags": [
+      "legal",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-027",
+    "filename": "Compliance_Anti_Bribery_Policy.pdf",
+    "title": "Anti‑Bribery & Corruption Policy",
+    "department": "Compliance",
+    "access_groups": [
+      "compliance_team"
+    ],
+    "tags": [
+      "compliance",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-028",
+    "filename": "Compliance_Audit_Readiness_Checklist.pdf",
+    "title": "Audit Readiness Checklist",
+    "department": "Compliance",
+    "access_groups": [
+      "compliance_team"
+    ],
+    "tags": [
+      "compliance",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-029",
+    "filename": "Eng_Architecture_Overview.pdf",
+    "title": "Engineering Architecture Overview",
+    "department": "Eng",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "eng",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-030",
+    "filename": "Eng_Logging_and_Monitoring_Standard.pdf",
+    "title": "Logging & Monitoring Standard",
+    "department": "Eng",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "eng",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-031",
+    "filename": "Eng_Deployment_Runbook.pdf",
+    "title": "Deployment Runbook",
+    "department": "Eng",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "eng",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-032",
+    "filename": "Eng_Oncall_Handbook.pdf",
+    "title": "On‑Call Handbook",
+    "department": "Eng",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "eng",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-033",
+    "filename": "Support_Triage_Playbook.pdf",
+    "title": "Support Triage Playbook",
+    "department": "Support",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "support",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-034",
+    "filename": "Support_SLAs_and_Escalation.pdf",
+    "title": "Support SLAs & Escalation",
+    "department": "Support",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "support",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-035",
+    "filename": "Product_Roadmap_Q1_2026.pdf",
+    "title": "Product Roadmap Q1 2026",
+    "department": "Product",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "product",
+      "policy",
+      "internal"
+    ]
+  },
+  {
+    "doc_id": "DOC-036",
+    "filename": "Postmortem_Template_and_Guidelines.pdf",
+    "title": "Postmortem Template & Guidelines",
+    "department": "Postmortem",
+    "access_groups": [
+      "all_employees"
+    ],
+    "tags": [
+      "postmortem",
+      "policy",
+      "internal"
+    ]
+  }
+]
